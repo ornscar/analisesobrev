@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Análise de sobrevivência</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ornella Scardua Ferreira" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="custom_css.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: middle, center, inverse
+
+# Análise de sobrevivência
+
+.large[### Curso de Bioestatística utilizando o R]
+
+*****
+
+#### &lt;br&gt;&lt;br&gt;&lt;br&gt;Ornella Scardua Ferreira
+#### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#ffffff;overflow:visible;position:relative;"><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM218 271.7L64.2 172.4C66 156.4 79.5 144 96 144H352c16.5 0 30 12.4 31.8 28.4L230 271.7c-1.8 1.2-3.9 1.8-6 1.8s-4.2-.6-6-1.8zm29.4 26.9L384 210.4V336c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V210.4l136.6 88.2c7 4.5 15.1 6.9 23.4 6.9s16.4-2.4 23.4-6.9z"/></svg> [ornscar@gmail.com](ornscar@gmail.com) <svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#ffffff;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> [@ornscar](https://github.com/ornscar) <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#ffffff;overflow:visible;position:relative;"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg> [@ornscar](https://twitter.com/ornscar) 
+
+
+
+
+
+---
+class: middle, center, partial-bg
+
+.pull-left[
+### Sobre mim
+
+&lt;img src="img/perfil.png" width="75%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;font color="#FFF5F4"&gt;&lt;em&gt;Amo gráficos como amo cavalos. Gosto de música ruim e de cinema (bom). Sou apaixonada pelo Botafogo e pelo Bayern de Munique. Prefiro Vila Velha a qualquer lugar no mundo. Não tenho sonhos, mas um dia espero ver a Palestina livre.&lt;/font&gt;&lt;/em&gt;
+]
+
+---
+
+### Cronograma
+
+- Aplicação no <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#333333;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>:
+
+    - Kaplan-Meier (K-M);
+
+    - Teste de Log-Rank;
+
+    - Modelo de Cox: ajuste, taxas de falha e resíduos de Shoenfeld.
+
+&lt;br&gt;
+
+- Pacotes <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#333333;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>:
+
+&gt; `survival`: ajustar modelo de sobrevivência não paramétrico e modelo de Cox;
+
+&gt; `survminer`: construir curvas de K-M, aplicar Teste de Log-Rank e construir gráficos de resíduos de Shoenfeld.
+
+---
+
+### Os dados
+
+- Registros de **câncer de intestino** oriundos do banco do Registro Hospitalar de Câncer (RHC) do Estado de São Paulo, datados entre os anos de 2000 a 2020.
+
+- **764 pacientes** diagnosticados com câncer de intestino e **7 variáveis**, a saber:
+
+&gt; `escolaridade`: analfabeto, fund. incompleto, fund. completo, ens. médio, superior;
+
+&gt; `faixa_etaria`: &lt;=50, &gt;50;
+
+&gt; `sexo`: feminino, masculino;
+
+&gt; `atendimento_diagnostico`: convênio, particular, sus;
+
+&gt; `estadiamento_clinico`: I, II, III, IV;
+
+&gt; `status`: 0 (censura), 1 (falha);
+
+&gt; `tempo_meses`: tempo, em meses, até o óbito pelo câncer de intestino.
+
+- **Objetivo**: investigar se características de sexo, faixa etária, escolaridade, categoria de atendimento e o estadiamento clínico da doença do paciente afetam o tempo de sobreviência até o óbito pelo câncer de intestino.
+
+---
+
+- No <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#333333;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>:
+
+
+```r
+# carregando os dados
+
+d_cint &lt;- readr::read_csv("dados/intestino.csv", show_col_types = FALSE)
+
+# panorama da base de dados
+
+*dplyr::glimpse(d_cint)
+```
+
+```
+## Rows: 764
+## Columns: 7
+## $ escolaridade            &lt;chr&gt; "fund. incompleto", "superior", "superior", "s…
+## $ faixa_etaria            &lt;chr&gt; "&gt;50", "&gt;50", "&gt;50", "&lt;=50", "&gt;50", "&gt;50", "&lt;=…
+## $ sexo                    &lt;chr&gt; "feminino", "masculino", "masculino", "masculi…
+## $ atendimento_diagnostico &lt;chr&gt; "sus", "convênio", "convênio", "particular", "…
+## $ estadiamento_clinico    &lt;chr&gt; "III", "III", "III", "III", "IV", "III", "III"…
+## $ status                  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1…
+## $ tempo_meses             &lt;dbl&gt; 14, 24, 23, 6, 12, 11, 9, 1, 40, 4, 1, 2, 41, …
+```
+
+---
+class: middle, center, inverse
+
+## Kaplan-Meier e Log-Rank
+
+---
+
+#### Verificando censuras:
+
+
+```r
+library(survival)
+
+# checando as 10 primeiras observações
+
+*head(Surv(time = d_cint$tempo_meses, event = d_cint$status), n = 100)
+```
+
+```
+##   [1]  14+  24+  23+   6+  12+  11+   9+   1+  40+   4    1    2   41+  44+   5 
+##  [16]  26   16   43+  12+   2    5+  16+  27+  30+  15+  14+  25+  19+  16+  43+
+##  [31]  33+  10+  48+   5  116   93+   6   14   62+  76+  20   58+   4   43   36 
+##  [46]  28+  28+   3    5    8   22+  22+   1   26+  12   16+  17+  13+  10+  12 
+##  [61]  19   10+   7    7+  33+  54+  54+  77+  20+  77    5+   6   34+  31+ 220+
+##  [76]   8  160+ 149+ 137+  24    9   97+ 120+ 115+ 118+ 118+ 112+  15   27   37+
+##  [91]   2    3    5   14    4  102+  13    9    9    5
+```
+
+&lt;br&gt;
+.left[
+&lt;font size=3, color="#C0392B"&gt;Observação: nessa base, em particular, são 474 censuras e 290 falhas.&lt;/font&gt;
+]
+
+---
+
+#### Construindo curvas de sobrevivências baseada no estimador de K-M:
+
+.pull-left[
+
+```r
+# ajustar modelo não paramétrico baseado no estimador k-m
+# k-m geral
+
+km_geral &lt;- survfit(
+  Surv(time = tempo_meses, event = status) ~ 1, 
+  data = d_cint 
+)
+
+# curva de k-m geral
+
+library(survminer)
+
+*ggsurvplot(km_geral, data = d_cint)
+```
+]
+
+.pull-right[
+![](sobrev_files/figure-html/g1-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+.pull-left[
+
+```r
+ggsurvplot(
+  km_geral, data = d_cint,
+* conf.int.style = "step"
+)
+```
+]
+
+.pull-right[
+![](sobrev_files/figure-html/g2-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+.pull-left[
+
+```r
+ggsurvplot(
+  km_geral, data = d_cint,
+  conf.int.style = "step",
+* legend = "none"
+)
+```
+]
+
+.pull-right[
+![](sobrev_files/figure-html/g3-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+.pull-left[
+
+```r
+ggsurvplot(
+  km_geral, data = d_cint,
+  conf.int.style = "step",
+  legend = "none",
+* surv.median.line = "hv"
+)
+```
+]
+
+.pull-right[
+![](sobrev_files/figure-html/g4-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+.pull-left[
+
+```r
+ggsurvplot(
+  km_geral, data = d_cint,
+  conf.int.style = "step",
+  legend = "none",
+  surv.median.line = "hv",
+* fun = "pct"
+)
+```
+]
+
+.pull-right[
+![](sobrev_files/figure-html/g5-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+.pull-left[
+
+```r
+ggsurvplot(
+  km_geral, data = d_cint,
+  conf.int.style = "step",
+  legend = "none",
+  surv.median.line = "hv",
+  fun = "pct",
+* ylab = "Probabilidade de sobrevida (%)",
+* xlab = "Tempo (em meses)"
+)
+```
+
+&lt;br&gt;
+.left[
+&lt;font size=3, color="#C0392B"&gt;Conclusão: indivíduos que sobreviveram ao câncer de intestino até aproximadamente o nono ano têm probabilidade de continuar vivo estabilizada em torno de 47%. &lt;/font&gt;
+]
+]
+
+.pull-right[
+![](sobrev_files/figure-html/g6-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+#### Mas talvez o interesse esteja em comparar as curvas de sobrevida entre grupos...
+
+.pull-left[
+
+```r
+# ajustar modelo não paramétrico baseado no estimador k-m
+# k-m categoria de atendimento
+
+km_atend &lt;- survfit(
+  Surv(time = tempo_meses, event = status) ~ atendimento_diagnostico, 
+  data = d_cint 
+) 
+
+# curva de k-m, por categoria de atendimento
+
+*ggsurvplot(
+* km_atend, data = d_cint,
+* fun = "pct",
+* ylab = "Probabilidade de sobrevida (%)",
+* xlab = "Tempo (em meses)",
+*) 
+```
+]
+
+.pull-right[
+![](sobrev_files/figure-html/g7-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+.pull-left[
+
+```r
+ggsurvplot(
+  km_atend, data = d_cint, 
+  fun = "pct", 
+  ylab = "Probabilidade de sobrevida (%)", 
+  xlab = "Tempo (em meses)", 
+* legend.title = "Categoria de atendimento",
+* legend.labs = c("Convenio", "Particular", "SUS")
+) 
+```
+]
+
+.pull-right[
+![](sobrev_files/figure-html/g8-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+.pull-left[
+
+```r
+ggsurvplot(
+  km_atend, data = d_cint, 
+  fun = "pct", 
+  ylab = "Probabilidade de sobrevida (%)", 
+  xlab = "Tempo (em meses)", 
+  legend.title = "Categoria de atendimento",
+  legend.labs = c("Convenio", "Particular", "SUS"),
+* pval = TRUE, pval.size = 3
+) 
+```
+]
+
+.pull-right[
+![](sobrev_files/figure-html/g9-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+.pull-left[
+
+```r
+ggsurvplot(
+  km_atend, data = d_cint, 
+  fun = "pct", 
+  ylab = "Probabilidade de sobrevida (%)", 
+  xlab = "Tempo (em meses)", 
+  legend.title = "Categoria de atendimento",
+  legend.labs = c("Convenio", "Particular", "SUS"),
+  pval = TRUE, pval.size = 3,
+* risk.table = TRUE
+) 
+```
+
+&lt;br&gt;
+.left[
+&lt;font size=3, color="#C0392B"&gt;Conclusão: a categoria de atendimento do paciente parecem afetar o tempo de sobrevida até o óbito pelo câncer de intestino, uma vez que p=0,00036. Pelo gráfico, podemos observar que indivíduos que foram atendidos pelo Sistema Único de Saúde (SUS) têm probabilidade expressivamente menor de sobreviver se comparados àqueles que foram atendidos por convênio ou de forma particular.&lt;/font&gt;
+]
+&lt;br&gt;
+.left[
+&lt;font size=3, color="#C0392B"&gt;SUGESTÃO! Reproduza as curvas de K-M para as outras variáveis da base de dados.&lt;/font&gt;
+]
+]
+
+.pull-right[
+![](sobrev_files/figure-html/g10-out-1.png)&lt;!-- --&gt;
+]
+
+---
+class: middle, center, inverse
+
+## Modelo de Cox
+
+---
+
+#### Supondo taxas de falhas proporcionais, ajustamos o modelo semi-paramétrico de Cox:
+
+
+```r
+# ajuste
+
+mod_cox &lt;- coxph( 
+  Surv(time = tempo_meses, event = status) ~ escolaridade + faixa_etaria + sexo + 
+    atendimento_diagnostico + estadiamento_clinico, 
+  data =  d_cint 
+) 
+```
+
+---
+
+#### Mas antes de verificar as estimativas, vamos averiguar se, de fato, há riscos proporcionais...
+
+.pull-left[
+
+```r
+# teste de riscos proporcionais
+
+teste_rp &lt;- cox.zph(mod_cox)
+
+# graficos de residuos de shoenfeld
+
+*ggcoxzph(
+* teste_rp,
+* point.alpha = 0.6,
+* point.col = "#000000"
+*) 
+```
+
+&lt;br&gt;
+.left[
+&lt;font size=3, color="#C0392B"&gt;Conclusão: ao observar os gráficos dos resíduos padronizados de Shoenfeld, atestamos a premissa de proporcionalidade pois não existem tendências claras ao longo do tempo. Além disso, podemos verificar que os testes global e para cada uma das covariáveis em análise apresentaram evidências que não permitem a rejeição da hipótese nula de riscos proporcionais, dado que todos os valores-p foram superiores a 0,05.&lt;/font&gt;
+]
+]
+
+.pull-right[
+![](sobrev_files/figure-html/g11-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+#### Agora sim, podemos confiar nas estimativas do nosso modelo:
+
+
+```r
+# resumo do modelo
+
+*summary(mod_cox)
+```
+
+```
+## Call:
+## coxph(formula = Surv(time = tempo_meses, event = status) ~ escolaridade + 
+##     faixa_etaria + sexo + atendimento_diagnostico + estadiamento_clinico, 
+##     data = d_cint)
+## 
+##   n= 764, number of events= 290 
+## 
+##                                      coef exp(coef) se(coef)      z Pr(&gt;|z|)
+## escolaridadeens. médio            -0.4772    0.6206   0.2616 -1.824  0.06819
+## escolaridadefund. completo        -0.2978    0.7425   0.2319 -1.284  0.19914
+## escolaridadefund. incompleto      -0.1677    0.8456   0.2379 -0.705  0.48092
+## escolaridadesuperior              -0.9655    0.3808   0.3371 -2.864  0.00418
+## faixa_etaria&gt;50                    0.2613    1.2986   0.1553  1.682  0.09250
+## sexomasculino                      0.0880    1.0920   0.1188  0.741  0.45894
+## atendimento_diagnosticoparticular -0.2918    0.7469   0.7726 -0.378  0.70560
+## atendimento_diagnosticosus         0.7076    2.0291   0.3218  2.199  0.02790
+## estadiamento_clinicoII             0.2326    1.2618   0.2808  0.828  0.40762
+## estadiamento_clinicoIII            0.6257    1.8696   0.2531  2.472  0.01343
+## estadiamento_clinicoIV             1.6524    5.2195   0.2402  6.879 6.01e-12
+##                                      
+## escolaridadeens. médio            .  
+## escolaridadefund. completo           
+## escolaridadefund. incompleto         
+## escolaridadesuperior              ** 
+## faixa_etaria&gt;50                   .  
+## sexomasculino                        
+## atendimento_diagnosticoparticular    
+## atendimento_diagnosticosus        *  
+## estadiamento_clinicoII               
+## estadiamento_clinicoIII           *  
+## estadiamento_clinicoIV            ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+##                                   exp(coef) exp(-coef) lower .95 upper .95
+## escolaridadeens. médio               0.6206     1.6115    0.3716    1.0363
+## escolaridadefund. completo           0.7425     1.3468    0.4713    1.1697
+## escolaridadefund. incompleto         0.8456     1.1826    0.5304    1.3480
+## escolaridadesuperior                 0.3808     2.6261    0.1967    0.7373
+## faixa_etaria&gt;50                      1.2986     0.7700    0.9578    1.7607
+## sexomasculino                        1.0920     0.9158    0.8651    1.3784
+## atendimento_diagnosticoparticular    0.7469     1.3389    0.1643    3.3952
+## atendimento_diagnosticosus           2.0291     0.4928    1.0798    3.8128
+## estadiamento_clinicoII               1.2618     0.7925    0.7277    2.1880
+## estadiamento_clinicoIII              1.8696     0.5349    1.1384    3.0704
+## estadiamento_clinicoIV               5.2194     0.1916    3.2596    8.3576
+## 
+## Concordance= 0.701  (se = 0.016 )
+## Likelihood ratio test= 148.8  on 11 df,   p=&lt;2e-16
+## Wald test            = 140.9  on 11 df,   p=&lt;2e-16
+## Score (logrank) test = 159.3  on 11 df,   p=&lt;2e-16
+```
+
+---
+
+#### Conclusões ao nível de significância de 5%:
+
+- Ser analfabeto, ser atendido pelo SUS e ter o tumor classificado nos estadios III ou IV aumentam o risco de morte entre pessoas diagnosticadas com câncer de intestino. Ao contrário do que acontece se o paciente tem ensino superior, quando o risco de vir a óbito diminui.
+
+- Ao considerar as demais covariáveis constantes, também concluímos que o risco de morte por câncer de intestino entre os pacientes com estadiamento IV é cerca de 5 vezes o risco de morte entre os pacientes em que o tumor foi classificado com estadio I. Sem contar se o paciente foi atendido pelo SUS, cuja categoria é capaz de aumentar em duas vezes o risco de óbito em comparação a se o atendimento tivesse sido feito por meio de convênio.
+
+---
+class: middle, center, inverse
+
+# Meu obrigada!
+
+
+slides criados via pacote R:
+
+[**xaringan**](https://github.com/yihui/xaringan)&lt;br&gt;
+[gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)
+
+o chakra vem de [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr) e [R Markdown](https://rmarkdown.rstudio.com).
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

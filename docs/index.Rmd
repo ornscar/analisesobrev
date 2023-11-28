@@ -1,0 +1,458 @@
+---
+title: "Análise de sobrevivência"
+author: "Ornella Scardua Ferreira"
+output: 
+  xaringan::moon_reader:
+    lib_dir: libs
+    seal: false
+    css: [xaringan-themer.css, "custom_css.css"]
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: middle, center, inverse
+
+# Análise de sobrevivência
+
+.large[### Curso de Bioestatística utilizando o R]
+
+*****
+
+#### <br><br><br>Ornella Scardua Ferreira
+#### `r fontawesome::fa("square-envelope", fill = "#ffffff")` [ornscar@gmail.com](ornscar@gmail.com) `r fontawesome::fa("github", fill = "#ffffff")` [@ornscar](https://github.com/ornscar) `r fontawesome::fa("twitter", fill = "#ffffff")` [@ornscar](https://twitter.com/ornscar) 
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+
+red <- "#C0392B"
+light_red <- "#FFF5F4"
+gray <- "#333333"
+dark_yellow <- "#EFBE43"
+
+style_duo(
+  # colors
+  primary_color = light_red,
+  secondary_color = red,
+  header_color = gray,
+  text_color = gray,
+  code_inline_color = colorspace::lighten(gray),
+  text_bold_color = colorspace::lighten(gray),
+  link_color = dark_yellow,
+  title_slide_text_color = dark_yellow,
+  # fonts
+  header_font_google = google_font("Martel", "300", "400"),
+  text_font_google = google_font("Lato"),
+  code_font_google = google_font("Fira Mono")
+)
+```
+
+---
+class: middle, center, partial-bg
+
+.pull-left[
+### Sobre mim
+
+```{r echo=FALSE, fig.align ='center', out.width="75%"}
+knitr::include_graphics("img/perfil.png")
+```
+]
+
+.pull-right[
+<br><br><br><br><br><br><br>
+<font color="#FFF5F4"><em>Amo gráficos como amo cavalos. Gosto de música ruim e de cinema (bom). Sou apaixonada pelo Botafogo e pelo Bayern de Munique. Prefiro Vila Velha a qualquer lugar no mundo. Não tenho sonhos, mas um dia espero ver a Palestina livre.</font></em>
+]
+
+---
+
+### Cronograma
+
+- Aplicação no `r fontawesome::fa("r-project", fill = "#333333")`:
+
+    - Kaplan-Meier (K-M);
+
+    - Teste de Log-Rank;
+
+    - Modelo de Cox: ajuste, taxas de falha e resíduos de Shoenfeld.
+
+<br>
+
+- Pacotes `r fontawesome::fa("r-project", fill = "#333333")`:
+
+> `survival`: ajustar modelo de sobrevivência não paramétrico e modelo de Cox;
+
+> `survminer`: construir curvas de K-M, aplicar Teste de Log-Rank e construir gráficos de resíduos de Shoenfeld.
+
+---
+
+### Os dados
+
+- Registros de **câncer de intestino** oriundos do banco do Registro Hospitalar de Câncer (RHC) do Estado de São Paulo, datados entre os anos de 2000 a 2020.
+
+- **764 pacientes** diagnosticados com câncer de intestino e **7 variáveis**, a saber:
+
+> `escolaridade`: analfabeto, fund. incompleto, fund. completo, ens. médio, superior;
+
+> `faixa_etaria`: <=50, >50;
+
+> `sexo`: feminino, masculino;
+
+> `atendimento_diagnostico`: convênio, particular, sus;
+
+> `estadiamento_clinico`: I, II, III, IV;
+
+> `status`: 0 (censura), 1 (falha);
+
+> `tempo_meses`: tempo, em meses, até o óbito pelo câncer de intestino.
+
+- **Objetivo**: investigar se características de sexo, faixa etária, escolaridade, categoria de atendimento e o estadiamento clínico da doença do paciente afetam o tempo de sobreviência até o óbito pelo câncer de intestino.
+
+---
+
+- No `r fontawesome::fa("r-project", fill = "#333333")`:
+
+```{r}
+# carregando os dados
+
+d_cint <- readr::read_csv("dados/intestino.csv", show_col_types = FALSE)
+
+# panorama da base de dados
+
+dplyr::glimpse(d_cint) #<<
+```
+
+---
+class: middle, center, inverse
+
+## Kaplan-Meier e Log-Rank
+
+---
+
+#### Verificando censuras:
+
+```{r}
+library(survival)
+
+# checando as 10 primeiras observações
+
+head(Surv(time = d_cint$tempo_meses, event = d_cint$status), n = 100) #<<
+```
+
+<br>
+.left[
+<font size=3, color="#C0392B">Observação: nessa base, em particular, são 474 censuras e 290 falhas.</font>
+]
+
+---
+
+#### Construindo curvas de sobrevivências baseada no estimador de K-M:
+
+.pull-left[
+```{r g1, paged.print=FALSE, eval=FALSE}
+# ajustar modelo não paramétrico baseado no estimador k-m
+# k-m geral
+
+km_geral <- survfit(
+  Surv(time = tempo_meses, event = status) ~ 1, 
+  data = d_cint 
+)
+
+# curva de k-m geral
+
+library(survminer)
+
+ggsurvplot(km_geral, data = d_cint) #<<
+```
+]
+
+.pull-right[
+```{r g1-out, ref.label="g1", echo=FALSE, message=FALSE}
+```
+]
+
+---
+
+.pull-left[
+```{r g2, paged.print=FALSE, eval=FALSE}
+ggsurvplot(
+  km_geral, data = d_cint,
+  conf.int.style = "step" #<<
+)
+```
+]
+
+.pull-right[
+```{r g2-out, ref.label="g2", echo=FALSE, message=FALSE}
+```
+]
+
+---
+
+.pull-left[
+```{r g3, paged.print=FALSE, eval=FALSE}
+ggsurvplot(
+  km_geral, data = d_cint,
+  conf.int.style = "step",
+  legend = "none" #<<
+)
+```
+]
+
+.pull-right[
+```{r g3-out, ref.label="g3", echo=FALSE, message=FALSE}
+```
+]
+
+---
+
+.pull-left[
+```{r g4, paged.print=FALSE, eval=FALSE}
+ggsurvplot(
+  km_geral, data = d_cint,
+  conf.int.style = "step",
+  legend = "none",
+  surv.median.line = "hv" #<<
+)
+```
+]
+
+.pull-right[
+```{r g4-out, ref.label="g4", echo=FALSE, message=FALSE}
+```
+]
+
+---
+
+.pull-left[
+```{r g5, paged.print=FALSE, eval=FALSE}
+ggsurvplot(
+  km_geral, data = d_cint,
+  conf.int.style = "step",
+  legend = "none",
+  surv.median.line = "hv",
+  fun = "pct" #<<
+)
+```
+]
+
+.pull-right[
+```{r g5-out, ref.label="g5", echo=FALSE, message=FALSE}
+```
+]
+
+---
+
+.pull-left[
+```{r g6, paged.print=FALSE, eval=FALSE}
+ggsurvplot(
+  km_geral, data = d_cint,
+  conf.int.style = "step",
+  legend = "none",
+  surv.median.line = "hv",
+  fun = "pct",
+  ylab = "Probabilidade de sobrevida (%)", #<<
+  xlab = "Tempo (em meses)" #<<
+)
+```
+
+<br>
+.left[
+<font size=3, color="#C0392B">Conclusão: indivíduos que sobreviveram ao câncer de intestino até aproximadamente o nono ano têm probabilidade de continuar vivo estabilizada em torno de 47%. </font>
+]
+]
+
+.pull-right[
+```{r g6-out, ref.label="g6", echo=FALSE, message=FALSE}
+```
+]
+
+---
+
+#### Mas talvez o interesse esteja em comparar as curvas de sobrevida entre grupos...
+
+.pull-left[
+```{r g7, paged.print=FALSE, eval=FALSE}
+# ajustar modelo não paramétrico baseado no estimador k-m
+# k-m categoria de atendimento
+
+km_atend <- survfit(
+  Surv(time = tempo_meses, event = status) ~ atendimento_diagnostico, 
+  data = d_cint 
+) 
+
+# curva de k-m, por categoria de atendimento
+
+ggsurvplot( #<<
+  km_atend, data = d_cint, #<<
+  fun = "pct", #<<
+  ylab = "Probabilidade de sobrevida (%)", #<<
+  xlab = "Tempo (em meses)", #<<
+) #<<
+```
+]
+
+.pull-right[
+```{r g7-out, ref.label="g7", echo=FALSE, message=FALSE}
+```
+]
+
+---
+
+.pull-left[
+```{r g8, paged.print=FALSE, eval=FALSE}
+ggsurvplot(
+  km_atend, data = d_cint, 
+  fun = "pct", 
+  ylab = "Probabilidade de sobrevida (%)", 
+  xlab = "Tempo (em meses)", 
+  legend.title = "Categoria de atendimento", #<<
+  legend.labs = c("Convenio", "Particular", "SUS") #<<
+) 
+```
+]
+
+.pull-right[
+```{r g8-out, ref.label="g8", echo=FALSE, message=FALSE}
+```
+]
+
+---
+
+.pull-left[
+```{r g9, paged.print=FALSE, eval=FALSE}
+ggsurvplot(
+  km_atend, data = d_cint, 
+  fun = "pct", 
+  ylab = "Probabilidade de sobrevida (%)", 
+  xlab = "Tempo (em meses)", 
+  legend.title = "Categoria de atendimento",
+  legend.labs = c("Convenio", "Particular", "SUS"),
+  pval = TRUE, pval.size = 3 #<<
+) 
+```
+]
+
+.pull-right[
+```{r g9-out, ref.label="g9", echo=FALSE, message=FALSE}
+```
+]
+
+---
+
+.pull-left[
+```{r g10, paged.print=FALSE, eval=FALSE}
+ggsurvplot(
+  km_atend, data = d_cint, 
+  fun = "pct", 
+  ylab = "Probabilidade de sobrevida (%)", 
+  xlab = "Tempo (em meses)", 
+  legend.title = "Categoria de atendimento",
+  legend.labs = c("Convenio", "Particular", "SUS"),
+  pval = TRUE, pval.size = 3,
+  risk.table = TRUE #<<
+) 
+```
+
+<br>
+.left[
+<font size=3, color="#C0392B">Conclusão: a categoria de atendimento do paciente parecem afetar o tempo de sobrevida até o óbito pelo câncer de intestino, uma vez que p=0,00036. Pelo gráfico, podemos observar que indivíduos que foram atendidos pelo Sistema Único de Saúde (SUS) têm probabilidade expressivamente menor de sobreviver se comparados àqueles que foram atendidos por convênio ou de forma particular.</font>
+]
+<br>
+.left[
+<font size=3, color="#C0392B">SUGESTÃO! Reproduza as curvas de K-M para as outras variáveis da base de dados.</font>
+]
+]
+
+.pull-right[
+```{r g10-out, ref.label="g10", echo=FALSE, message=FALSE}
+```
+]
+
+---
+class: middle, center, inverse
+
+## Modelo de Cox
+
+---
+
+#### Supondo taxas de falhas proporcionais, ajustamos o modelo semi-paramétrico de Cox:
+
+```{r}
+# ajuste
+
+mod_cox <- coxph( 
+  Surv(time = tempo_meses, event = status) ~ escolaridade + faixa_etaria + sexo + 
+    atendimento_diagnostico + estadiamento_clinico, 
+  data =  d_cint 
+) 
+```
+
+---
+
+#### Mas antes de verificar as estimativas, vamos averiguar se, de fato, há riscos proporcionais...
+
+.pull-left[
+```{r g11, paged.print=FALSE, eval=FALSE}
+# teste de riscos proporcionais
+
+teste_rp <- cox.zph(mod_cox)
+
+# graficos de residuos de shoenfeld
+
+ggcoxzph( #<<
+  teste_rp, #<<
+  point.alpha = 0.6, #<<
+  point.col = "#000000" #<<
+) #<<
+```
+
+<br>
+.left[
+<font size=3, color="#C0392B">Conclusão: ao observar os gráficos dos resíduos padronizados de Shoenfeld, atestamos a premissa de proporcionalidade pois não existem tendências claras ao longo do tempo. Além disso, podemos verificar que os testes global e para cada uma das covariáveis em análise apresentaram evidências que não permitem a rejeição da hipótese nula de riscos proporcionais, dado que todos os valores-p foram superiores a 0,05.</font>
+]
+]
+
+.pull-right[
+```{r g11-out, ref.label="g11", echo=FALSE, message=FALSE}
+```
+]
+
+---
+
+#### Agora sim, podemos confiar nas estimativas do nosso modelo:
+
+```{r}
+# resumo do modelo
+
+summary(mod_cox) #<<
+```
+
+---
+
+#### Conclusões ao nível de significância de 5%:
+
+- Ser analfabeto, ser atendido pelo SUS e ter o tumor classificado nos estadios III ou IV aumentam o risco de morte entre pessoas diagnosticadas com câncer de intestino. Ao contrário do que acontece se o paciente tem ensino superior, quando o risco de vir a óbito diminui.
+
+- Ao considerar as demais covariáveis constantes, também concluímos que o risco de morte por câncer de intestino entre os pacientes com estadiamento IV é cerca de 5 vezes o risco de morte entre os pacientes em que o tumor foi classificado com estadio I. Sem contar se o paciente foi atendido pelo SUS, cuja categoria é capaz de aumentar em duas vezes o risco de óbito em comparação a se o atendimento tivesse sido feito por meio de convênio.
+
+---
+class: middle, center, inverse
+
+# Meu obrigada!
+
+
+slides criados via pacote R:
+
+[**xaringan**](https://github.com/yihui/xaringan)<br>
+[gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)
+
+o chakra vem de [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr) e [R Markdown](https://rmarkdown.rstudio.com).
+
+

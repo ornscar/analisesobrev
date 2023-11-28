@@ -1,0 +1,765 @@
+escolaridade,faixa_etaria,sexo,atendimento_diagnostico,estadiamento_clinico,status,tempo_meses
+fund. incompleto,>50,feminino,sus,III,0,14
+superior,>50,masculino,convênio,III,0,24
+superior,>50,masculino,convênio,III,0,23
+superior,<=50,masculino,particular,III,0,6
+superior,>50,masculino,sus,IV,0,12
+superior,>50,feminino,particular,III,0,11
+superior,<=50,masculino,convênio,III,0,9
+superior,>50,feminino,convênio,III,0,1
+superior,>50,feminino,convênio,IV,0,40
+analfabeto,>50,feminino,sus,IV,1,4
+fund. completo,>50,masculino,sus,IV,1,1
+fund. incompleto,>50,masculino,sus,IV,1,2
+fund. incompleto,<=50,feminino,sus,IV,0,41
+fund. incompleto,>50,masculino,sus,II,0,44
+analfabeto,>50,feminino,sus,IV,1,5
+fund. completo,>50,masculino,sus,II,1,26
+fund. completo,<=50,feminino,sus,IV,1,16
+fund. incompleto,>50,masculino,sus,IV,0,43
+fund. incompleto,>50,feminino,sus,III,0,12
+superior,>50,masculino,particular,IV,1,2
+fund. completo,>50,masculino,particular,IV,0,5
+superior,>50,feminino,particular,IV,0,16
+superior,<=50,feminino,particular,IV,0,27
+superior,>50,feminino,particular,IV,0,30
+superior,>50,masculino,particular,IV,0,15
+superior,>50,masculino,particular,IV,0,14
+superior,<=50,feminino,particular,IV,0,25
+superior,<=50,masculino,convênio,III,0,19
+superior,>50,masculino,convênio,I,0,16
+ens. médio,>50,feminino,particular,III,0,43
+superior,>50,feminino,convênio,IV,0,33
+superior,>50,feminino,particular,II,0,10
+ens. médio,<=50,masculino,convênio,I,0,48
+analfabeto,<=50,masculino,sus,IV,1,5
+fund. completo,>50,masculino,sus,IV,1,116
+ens. médio,<=50,masculino,sus,IV,0,93
+fund. completo,<=50,feminino,sus,IV,1,6
+ens. médio,>50,masculino,sus,IV,1,14
+fund. completo,>50,feminino,sus,II,0,62
+fund. completo,>50,masculino,convênio,IV,0,76
+fund. incompleto,>50,masculino,sus,II,1,20
+ens. médio,>50,masculino,sus,IV,0,58
+fund. incompleto,>50,feminino,sus,IV,1,4
+fund. completo,>50,masculino,sus,IV,1,43
+fund. incompleto,>50,masculino,sus,I,1,36
+ens. médio,>50,feminino,sus,III,0,28
+fund. completo,>50,masculino,sus,III,0,28
+fund. completo,<=50,masculino,sus,IV,1,3
+fund. completo,<=50,masculino,sus,IV,1,5
+fund. incompleto,>50,feminino,sus,II,1,8
+fund. incompleto,>50,feminino,sus,III,0,22
+fund. incompleto,>50,masculino,sus,III,0,22
+fund. completo,>50,masculino,sus,IV,1,1
+superior,<=50,feminino,sus,II,0,26
+fund. completo,>50,masculino,sus,IV,1,12
+fund. completo,>50,feminino,sus,II,0,16
+ens. médio,>50,feminino,sus,IV,0,17
+fund. completo,>50,feminino,sus,III,0,13
+fund. incompleto,>50,masculino,sus,III,0,10
+ens. médio,<=50,masculino,sus,IV,1,12
+analfabeto,>50,masculino,sus,IV,1,19
+superior,>50,masculino,sus,III,0,10
+fund. incompleto,>50,masculino,sus,IV,1,7
+superior,<=50,feminino,sus,IV,0,7
+fund. incompleto,>50,masculino,sus,III,0,33
+ens. médio,<=50,masculino,sus,IV,0,54
+ens. médio,<=50,masculino,sus,IV,0,54
+fund. incompleto,>50,feminino,sus,I,0,77
+superior,<=50,feminino,sus,IV,0,20
+ens. médio,<=50,masculino,sus,II,1,77
+fund. completo,<=50,feminino,sus,II,0,5
+ens. médio,>50,feminino,convênio,IV,1,6
+superior,<=50,feminino,sus,I,0,34
+ens. médio,<=50,feminino,sus,IV,0,31
+fund. completo,<=50,feminino,sus,III,0,220
+analfabeto,>50,feminino,sus,III,1,8
+fund. completo,>50,feminino,sus,III,0,160
+superior,>50,masculino,sus,III,0,149
+fund. completo,>50,feminino,sus,III,0,137
+fund. completo,>50,masculino,sus,III,1,24
+fund. incompleto,>50,masculino,sus,IV,1,9
+fund. completo,>50,masculino,sus,II,0,97
+fund. completo,>50,masculino,sus,II,0,120
+fund. completo,>50,masculino,sus,I,0,115
+fund. completo,<=50,feminino,sus,III,0,118
+superior,>50,masculino,sus,II,0,118
+ens. médio,<=50,masculino,sus,III,0,112
+fund. completo,>50,feminino,sus,IV,1,15
+analfabeto,>50,masculino,sus,III,1,27
+fund. completo,>50,masculino,sus,II,0,37
+fund. incompleto,>50,feminino,sus,IV,1,2
+analfabeto,>50,feminino,sus,IV,1,3
+fund. completo,>50,masculino,sus,IV,1,5
+fund. completo,>50,feminino,sus,IV,1,14
+fund. completo,>50,masculino,sus,IV,1,4
+fund. completo,>50,masculino,sus,II,0,102
+fund. completo,>50,masculino,sus,III,1,13
+fund. incompleto,<=50,masculino,sus,IV,1,9
+fund. completo,<=50,feminino,sus,IV,1,9
+fund. completo,>50,masculino,sus,IV,1,5
+fund. completo,>50,feminino,sus,II,1,28
+fund. incompleto,>50,feminino,sus,III,0,69
+fund. completo,>50,masculino,sus,III,1,2
+analfabeto,>50,masculino,sus,IV,1,10
+fund. completo,>50,masculino,sus,III,1,5
+ens. médio,>50,masculino,sus,III,1,3
+fund. completo,>50,feminino,sus,IV,1,25
+analfabeto,>50,feminino,sus,III,0,96
+fund. completo,>50,feminino,sus,III,1,2
+fund. incompleto,>50,masculino,sus,III,1,15
+fund. completo,>50,feminino,sus,IV,1,5
+fund. completo,>50,masculino,sus,II,0,110
+fund. completo,>50,feminino,sus,III,1,5
+fund. completo,>50,feminino,sus,III,1,2
+superior,<=50,masculino,sus,III,1,8
+fund. completo,>50,masculino,sus,III,0,7
+superior,>50,feminino,sus,III,1,11
+fund. incompleto,>50,feminino,sus,III,0,82
+ens. médio,>50,feminino,sus,III,0,107
+ens. médio,>50,feminino,sus,IV,1,12
+fund. completo,>50,feminino,sus,III,1,6
+fund. completo,>50,feminino,sus,IV,1,15
+ens. médio,>50,masculino,sus,III,0,35
+fund. completo,<=50,masculino,sus,III,1,32
+fund. completo,>50,feminino,sus,II,0,77
+ens. médio,>50,masculino,sus,III,0,21
+fund. completo,>50,masculino,sus,III,1,9
+ens. médio,>50,feminino,sus,III,1,61
+superior,>50,masculino,sus,III,0,84
+ens. médio,>50,masculino,sus,IV,1,21
+ens. médio,>50,masculino,sus,III,1,11
+ens. médio,>50,feminino,sus,IV,1,3
+ens. médio,>50,masculino,sus,III,0,23
+ens. médio,>50,feminino,sus,III,1,18
+fund. completo,>50,masculino,sus,IV,1,2
+fund. completo,>50,feminino,sus,III,0,87
+fund. completo,>50,feminino,sus,III,0,48
+analfabeto,>50,masculino,sus,IV,1,14
+fund. completo,>50,feminino,sus,III,1,4
+fund. completo,<=50,feminino,sus,III,1,13
+ens. médio,<=50,feminino,sus,IV,1,20
+fund. completo,>50,feminino,sus,III,1,45
+fund. completo,>50,feminino,sus,II,0,67
+fund. completo,>50,masculino,sus,III,1,6
+ens. médio,<=50,feminino,sus,IV,1,7
+ens. médio,>50,masculino,sus,III,1,16
+fund. completo,>50,feminino,sus,III,0,75
+ens. médio,>50,masculino,sus,II,0,102
+fund. completo,>50,masculino,sus,IV,1,13
+fund. completo,>50,masculino,sus,III,1,47
+fund. completo,>50,masculino,sus,II,0,83
+ens. médio,<=50,masculino,sus,IV,1,24
+fund. completo,>50,feminino,sus,IV,1,29
+fund. completo,>50,masculino,sus,III,1,7
+fund. completo,>50,masculino,sus,III,0,55
+fund. completo,>50,feminino,sus,II,0,84
+analfabeto,>50,feminino,sus,IV,1,7
+fund. completo,>50,masculino,sus,III,0,80
+ens. médio,>50,feminino,sus,III,0,83
+fund. completo,>50,feminino,sus,IV,1,5
+ens. médio,>50,masculino,sus,IV,1,6
+fund. completo,>50,feminino,sus,II,0,89
+superior,>50,masculino,sus,II,1,2
+fund. completo,>50,masculino,sus,III,1,16
+fund. completo,>50,masculino,sus,I,0,54
+fund. completo,>50,masculino,sus,III,0,75
+fund. completo,>50,feminino,sus,III,0,76
+fund. completo,>50,feminino,sus,III,0,82
+fund. completo,>50,feminino,sus,III,0,116
+fund. completo,>50,masculino,sus,III,1,56
+superior,>50,masculino,sus,III,0,89
+fund. completo,<=50,feminino,sus,III,1,57
+analfabeto,>50,masculino,sus,III,0,83
+fund. completo,>50,feminino,sus,III,0,73
+fund. completo,>50,feminino,sus,I,0,90
+fund. completo,>50,feminino,sus,IV,0,108
+fund. completo,>50,masculino,sus,III,0,93
+fund. completo,>50,masculino,sus,IV,1,80
+fund. completo,>50,masculino,sus,IV,0,74
+fund. completo,<=50,masculino,sus,IV,1,18
+fund. completo,>50,masculino,sus,III,0,68
+superior,>50,feminino,sus,IV,1,6
+fund. completo,<=50,feminino,sus,III,0,205
+superior,>50,feminino,sus,I,0,86
+ens. médio,>50,feminino,sus,III,0,72
+ens. médio,<=50,feminino,sus,I,0,76
+fund. incompleto,>50,feminino,sus,IV,1,15
+fund. incompleto,>50,masculino,sus,IV,1,2
+fund. incompleto,>50,feminino,sus,III,1,2
+fund. completo,<=50,masculino,sus,IV,0,87
+ens. médio,<=50,masculino,sus,III,0,13
+fund. completo,<=50,feminino,sus,III,0,116
+fund. completo,>50,feminino,sus,III,0,80
+fund. completo,>50,feminino,sus,III,1,6
+fund. completo,>50,feminino,sus,III,0,82
+fund. completo,>50,feminino,sus,III,0,75
+ens. médio,>50,feminino,sus,III,0,65
+ens. médio,>50,feminino,sus,III,0,78
+fund. completo,<=50,feminino,sus,III,0,83
+fund. completo,>50,masculino,sus,IV,1,6
+fund. completo,>50,feminino,sus,IV,1,22
+fund. completo,>50,feminino,sus,III,0,78
+ens. médio,>50,feminino,sus,III,0,41
+fund. completo,>50,masculino,sus,II,0,65
+fund. incompleto,>50,feminino,sus,III,1,19
+fund. completo,>50,feminino,sus,II,0,105
+fund. completo,>50,feminino,sus,III,1,19
+fund. completo,>50,masculino,sus,III,1,11
+fund. completo,>50,masculino,sus,III,0,30
+fund. completo,>50,masculino,sus,III,0,70
+fund. completo,>50,masculino,sus,III,1,27
+ens. médio,<=50,masculino,sus,III,1,34
+fund. completo,>50,masculino,sus,III,1,7
+ens. médio,>50,masculino,sus,III,0,56
+fund. completo,>50,feminino,sus,II,0,64
+ens. médio,>50,feminino,sus,IV,1,21
+fund. completo,<=50,masculino,sus,IV,1,27
+fund. completo,>50,masculino,sus,III,1,47
+fund. completo,>50,masculino,sus,III,0,60
+fund. completo,>50,feminino,sus,III,0,56
+ens. médio,>50,masculino,sus,III,1,5
+superior,<=50,masculino,sus,II,0,57
+ens. médio,>50,feminino,sus,II,0,73
+ens. médio,>50,feminino,sus,IV,1,16
+fund. completo,>50,feminino,sus,III,0,76
+fund. incompleto,>50,masculino,sus,II,0,69
+fund. completo,>50,masculino,sus,II,0,71
+fund. completo,>50,masculino,sus,III,0,51
+fund. completo,>50,feminino,sus,IV,0,65
+ens. médio,<=50,feminino,sus,III,0,70
+fund. completo,>50,feminino,sus,IV,1,62
+fund. incompleto,<=50,feminino,sus,III,0,55
+fund. completo,>50,feminino,sus,IV,1,42
+fund. completo,>50,feminino,sus,I,0,47
+fund. completo,>50,masculino,sus,II,0,48
+fund. incompleto,>50,feminino,sus,III,0,57
+fund. completo,>50,feminino,sus,III,0,117
+superior,>50,masculino,sus,III,0,49
+analfabeto,>50,feminino,sus,III,0,46
+fund. completo,>50,masculino,sus,III,0,38
+fund. completo,<=50,masculino,sus,IV,0,10
+fund. completo,>50,masculino,sus,IV,1,15
+fund. incompleto,>50,masculino,sus,III,0,41
+ens. médio,>50,masculino,sus,IV,1,22
+ens. médio,>50,feminino,sus,II,0,14
+fund. incompleto,>50,feminino,sus,II,0,35
+fund. completo,>50,feminino,sus,III,0,42
+fund. incompleto,<=50,masculino,sus,IV,0,40
+fund. completo,>50,feminino,sus,I,0,43
+superior,>50,masculino,sus,III,0,44
+superior,>50,masculino,convênio,III,0,30
+ens. médio,>50,feminino,convênio,I,1,1
+ens. médio,>50,feminino,convênio,I,0,29
+fund. completo,>50,feminino,sus,III,1,11
+analfabeto,>50,feminino,sus,III,0,8
+fund. incompleto,>50,feminino,sus,II,1,19
+fund. incompleto,>50,masculino,sus,I,0,32
+superior,>50,masculino,convênio,III,0,118
+superior,>50,masculino,convênio,IV,0,26
+superior,>50,masculino,convênio,IV,1,53
+ens. médio,<=50,feminino,convênio,III,0,52
+superior,<=50,masculino,convênio,IV,0,39
+fund. completo,>50,feminino,sus,IV,1,41
+ens. médio,>50,feminino,particular,IV,0,52
+ens. médio,>50,feminino,convênio,I,0,25
+superior,<=50,feminino,convênio,II,0,36
+ens. médio,>50,masculino,sus,IV,0,37
+fund. completo,>50,masculino,sus,III,0,38
+ens. médio,>50,feminino,convênio,I,0,29
+superior,>50,masculino,convênio,IV,0,31
+ens. médio,>50,feminino,convênio,II,0,33
+superior,>50,feminino,convênio,III,0,29
+superior,>50,feminino,convênio,III,0,38
+fund. completo,>50,masculino,convênio,I,0,30
+fund. completo,>50,feminino,convênio,IV,1,20
+superior,>50,feminino,convênio,IV,0,23
+superior,>50,feminino,convênio,IV,1,28
+superior,>50,feminino,convênio,IV,0,21
+superior,>50,feminino,sus,I,0,188
+superior,>50,masculino,convênio,I,0,40
+fund. completo,>50,masculino,sus,IV,0,42
+superior,<=50,masculino,convênio,III,0,26
+ens. médio,>50,masculino,convênio,III,0,16
+fund. incompleto,>50,feminino,sus,I,0,23
+ens. médio,<=50,masculino,convênio,II,1,21
+superior,>50,feminino,convênio,IV,0,28
+ens. médio,>50,masculino,sus,II,0,64
+fund. incompleto,>50,masculino,sus,IV,1,3
+fund. incompleto,<=50,feminino,sus,IV,1,26
+fund. incompleto,>50,feminino,sus,III,1,10
+fund. completo,>50,feminino,sus,II,1,12
+fund. completo,<=50,masculino,sus,III,0,33
+fund. completo,<=50,feminino,sus,III,1,33
+fund. completo,>50,masculino,sus,III,0,107
+analfabeto,>50,masculino,sus,II,0,42
+fund. incompleto,<=50,feminino,sus,II,0,160
+fund. completo,<=50,masculino,sus,III,1,22
+fund. incompleto,>50,masculino,sus,II,0,75
+fund. completo,>50,masculino,sus,I,1,5
+fund. completo,<=50,masculino,sus,IV,0,120
+fund. completo,>50,feminino,sus,I,1,21
+ens. médio,<=50,feminino,sus,I,0,78
+superior,>50,feminino,sus,IV,1,5
+superior,>50,feminino,sus,I,0,12
+analfabeto,>50,feminino,sus,III,0,30
+fund. completo,>50,feminino,sus,I,0,24
+fund. completo,>50,feminino,sus,II,1,9
+fund. completo,>50,masculino,sus,II,1,20
+fund. completo,>50,masculino,sus,I,1,32
+ens. médio,>50,masculino,sus,IV,1,5
+fund. completo,>50,masculino,sus,I,0,59
+analfabeto,>50,feminino,sus,III,1,10
+fund. completo,>50,masculino,sus,III,0,59
+fund. completo,>50,masculino,sus,III,1,9
+fund. completo,>50,feminino,sus,III,1,15
+fund. completo,>50,masculino,sus,II,0,37
+fund. completo,<=50,feminino,sus,II,0,34
+ens. médio,<=50,masculino,sus,II,0,50
+superior,>50,masculino,sus,I,1,1
+fund. completo,<=50,masculino,sus,II,0,24
+analfabeto,>50,feminino,sus,IV,0,17
+fund. completo,<=50,masculino,sus,I,1,10
+fund. incompleto,>50,feminino,sus,II,0,26
+fund. incompleto,>50,feminino,sus,III,0,22
+fund. incompleto,>50,masculino,sus,III,0,12
+fund. incompleto,>50,feminino,sus,III,1,3
+fund. completo,>50,feminino,sus,III,0,8
+ens. médio,>50,feminino,sus,III,0,36
+fund. completo,>50,masculino,sus,I,0,22
+ens. médio,>50,feminino,sus,I,0,26
+fund. completo,<=50,feminino,sus,I,0,5
+fund. completo,>50,feminino,sus,II,1,14
+fund. completo,>50,masculino,sus,III,1,10
+fund. completo,>50,masculino,sus,III,0,24
+fund. incompleto,>50,feminino,sus,IV,1,1
+fund. incompleto,>50,masculino,sus,III,1,1
+superior,>50,feminino,sus,IV,0,8
+ens. médio,>50,feminino,sus,I,0,7
+fund. completo,>50,masculino,sus,IV,0,12
+fund. completo,>50,feminino,sus,III,0,8
+fund. incompleto,>50,masculino,sus,IV,0,110
+fund. incompleto,>50,masculino,sus,I,0,74
+fund. incompleto,>50,feminino,sus,I,0,74
+ens. médio,<=50,masculino,sus,IV,0,48
+fund. incompleto,>50,feminino,sus,I,0,75
+analfabeto,>50,masculino,sus,IV,0,61
+fund. incompleto,<=50,feminino,sus,III,1,6
+fund. incompleto,<=50,feminino,sus,IV,1,6
+fund. incompleto,>50,feminino,sus,III,1,35
+fund. incompleto,>50,feminino,sus,I,0,10
+analfabeto,>50,feminino,sus,IV,0,23
+fund. completo,>50,feminino,sus,II,0,24
+fund. incompleto,>50,feminino,sus,III,1,1
+ens. médio,<=50,feminino,sus,III,1,3
+ens. médio,>50,masculino,sus,II,0,14
+fund. incompleto,>50,feminino,sus,I,0,50
+fund. incompleto,>50,masculino,sus,II,1,24
+fund. completo,>50,masculino,sus,I,0,48
+fund. incompleto,<=50,masculino,sus,IV,1,3
+fund. incompleto,>50,feminino,sus,I,0,4
+fund. completo,>50,feminino,sus,III,0,42
+fund. incompleto,>50,masculino,sus,IV,0,3
+fund. incompleto,>50,feminino,sus,IV,0,3
+fund. completo,>50,masculino,sus,II,1,17
+ens. médio,>50,feminino,convênio,III,0,61
+ens. médio,>50,masculino,convênio,II,0,45
+ens. médio,>50,feminino,convênio,II,0,3
+fund. completo,>50,feminino,convênio,II,0,4
+ens. médio,>50,feminino,convênio,II,0,34
+fund. incompleto,<=50,feminino,sus,II,0,211
+fund. incompleto,>50,feminino,sus,I,0,190
+analfabeto,>50,feminino,sus,III,0,138
+fund. incompleto,>50,masculino,sus,I,1,97
+fund. completo,>50,masculino,sus,II,1,30
+fund. completo,>50,masculino,sus,IV,1,4
+ens. médio,>50,masculino,sus,I,1,10
+fund. completo,<=50,feminino,sus,II,0,5
+fund. incompleto,>50,feminino,sus,IV,1,4
+fund. completo,<=50,masculino,sus,IV,1,13
+fund. completo,>50,feminino,sus,II,1,2
+fund. incompleto,>50,feminino,sus,II,0,77
+fund. completo,>50,feminino,sus,II,0,42
+fund. incompleto,<=50,masculino,sus,IV,1,26
+ens. médio,<=50,feminino,sus,II,0,21
+fund. completo,<=50,feminino,sus,III,0,20
+ens. médio,>50,masculino,sus,II,0,29
+fund. completo,>50,masculino,sus,IV,1,12
+ens. médio,<=50,masculino,sus,II,0,28
+fund. incompleto,>50,masculino,sus,IV,1,11
+superior,>50,masculino,sus,I,0,32
+analfabeto,>50,feminino,sus,IV,1,9
+fund. completo,<=50,feminino,sus,IV,1,5
+fund. incompleto,>50,feminino,sus,I,0,13
+fund. incompleto,>50,feminino,sus,I,0,52
+fund. incompleto,>50,masculino,sus,I,0,67
+fund. completo,>50,masculino,sus,I,1,9
+analfabeto,>50,feminino,sus,III,1,22
+superior,>50,feminino,sus,III,1,1
+fund. incompleto,>50,masculino,sus,IV,0,45
+fund. incompleto,>50,masculino,sus,II,0,46
+fund. completo,>50,masculino,sus,IV,0,44
+analfabeto,>50,masculino,sus,IV,1,11
+ens. médio,>50,feminino,sus,III,0,26
+fund. incompleto,>50,masculino,sus,IV,1,13
+fund. incompleto,>50,masculino,sus,III,0,25
+fund. incompleto,>50,feminino,sus,I,0,22
+analfabeto,>50,feminino,sus,III,1,45
+analfabeto,>50,masculino,sus,II,0,7
+fund. incompleto,>50,masculino,sus,III,0,14
+fund. completo,>50,feminino,sus,II,0,48
+fund. completo,>50,masculino,convênio,I,0,41
+fund. completo,>50,feminino,convênio,I,0,59
+fund. completo,>50,feminino,sus,I,1,6
+fund. completo,>50,masculino,convênio,I,0,40
+fund. completo,>50,feminino,sus,I,0,22
+fund. completo,>50,masculino,convênio,I,0,65
+fund. completo,>50,feminino,convênio,II,1,35
+fund. completo,>50,masculino,convênio,II,0,20
+fund. completo,>50,masculino,sus,I,1,26
+fund. completo,<=50,feminino,convênio,I,0,27
+fund. completo,>50,masculino,sus,I,1,39
+fund. completo,<=50,masculino,convênio,I,0,135
+fund. completo,>50,feminino,sus,I,0,118
+fund. completo,>50,feminino,sus,II,1,6
+fund. completo,>50,masculino,sus,I,0,27
+fund. completo,>50,masculino,convênio,I,0,2
+fund. completo,>50,feminino,sus,II,0,52
+fund. completo,>50,masculino,convênio,I,0,31
+fund. completo,>50,feminino,convênio,IV,0,17
+fund. completo,>50,feminino,convênio,IV,0,10
+fund. completo,<=50,feminino,convênio,II,0,2
+fund. completo,>50,feminino,sus,IV,0,9
+fund. completo,>50,masculino,convênio,III,0,4
+fund. completo,>50,masculino,convênio,II,0,87
+ens. médio,<=50,feminino,convênio,IV,0,55
+ens. médio,>50,feminino,convênio,III,0,12
+fund. incompleto,>50,masculino,sus,IV,1,8
+analfabeto,>50,feminino,sus,II,1,2
+fund. incompleto,>50,feminino,sus,IV,1,17
+fund. incompleto,<=50,masculino,sus,IV,1,21
+fund. incompleto,>50,masculino,sus,I,0,1
+fund. incompleto,<=50,masculino,sus,I,1,85
+fund. incompleto,>50,masculino,sus,IV,1,1
+analfabeto,>50,feminino,sus,IV,1,4
+ens. médio,<=50,feminino,sus,II,0,58
+superior,>50,feminino,sus,I,0,70
+fund. incompleto,>50,feminino,sus,III,0,75
+fund. incompleto,>50,masculino,sus,IV,1,1
+fund. incompleto,<=50,feminino,sus,IV,0,20
+fund. incompleto,>50,feminino,sus,IV,1,32
+ens. médio,<=50,feminino,sus,III,0,59
+superior,>50,feminino,sus,IV,1,1
+ens. médio,<=50,masculino,sus,IV,0,57
+fund. incompleto,>50,masculino,sus,III,0,15
+ens. médio,>50,masculino,sus,IV,1,3
+fund. completo,>50,masculino,sus,IV,0,49
+fund. incompleto,<=50,feminino,sus,II,0,15
+fund. incompleto,>50,masculino,sus,IV,1,14
+fund. completo,>50,masculino,sus,IV,0,24
+fund. incompleto,>50,masculino,sus,III,0,41
+fund. incompleto,<=50,masculino,sus,II,0,37
+fund. completo,>50,masculino,sus,III,0,32
+ens. médio,<=50,feminino,sus,II,0,37
+fund. incompleto,<=50,feminino,sus,IV,1,15
+fund. completo,>50,masculino,sus,IV,1,2
+fund. completo,>50,feminino,sus,IV,0,45
+ens. médio,<=50,feminino,sus,III,0,36
+ens. médio,>50,feminino,sus,IV,1,4
+ens. médio,>50,masculino,sus,III,0,1
+ens. médio,>50,feminino,sus,IV,0,30
+fund. incompleto,>50,feminino,sus,IV,1,6
+fund. incompleto,>50,masculino,sus,III,0,28
+fund. completo,>50,masculino,sus,IV,0,34
+fund. completo,>50,masculino,sus,II,0,5
+ens. médio,>50,masculino,sus,I,0,36
+superior,<=50,feminino,sus,IV,1,18
+fund. completo,<=50,masculino,sus,III,1,4
+ens. médio,<=50,masculino,sus,III,0,39
+superior,<=50,masculino,sus,IV,0,29
+superior,<=50,masculino,sus,IV,0,23
+fund. incompleto,>50,feminino,sus,IV,1,19
+fund. incompleto,>50,masculino,sus,IV,0,19
+superior,>50,feminino,sus,III,0,32
+superior,>50,masculino,sus,II,0,24
+fund. incompleto,>50,feminino,sus,IV,1,4
+superior,>50,masculino,sus,IV,0,24
+analfabeto,>50,masculino,sus,IV,1,10
+fund. completo,>50,feminino,sus,IV,0,33
+fund. incompleto,>50,masculino,sus,I,0,23
+fund. incompleto,>50,masculino,sus,I,0,26
+ens. médio,>50,feminino,sus,III,0,8
+ens. médio,>50,masculino,sus,II,0,18
+fund. completo,>50,feminino,sus,IV,0,7
+fund. incompleto,>50,masculino,sus,III,0,17
+ens. médio,>50,masculino,sus,IV,0,25
+superior,>50,masculino,sus,I,0,17
+ens. médio,>50,masculino,sus,II,0,26
+fund. completo,>50,masculino,sus,IV,0,19
+superior,<=50,masculino,sus,IV,0,19
+fund. incompleto,>50,masculino,sus,I,0,22
+fund. incompleto,>50,feminino,sus,III,0,12
+fund. completo,<=50,masculino,sus,IV,1,1
+fund. incompleto,>50,feminino,sus,IV,1,25
+fund. completo,<=50,masculino,sus,IV,1,18
+superior,<=50,feminino,sus,IV,1,9
+superior,>50,feminino,sus,IV,0,16
+fund. incompleto,>50,masculino,sus,IV,0,14
+ens. médio,<=50,masculino,sus,IV,1,14
+superior,>50,masculino,sus,III,1,3
+fund. incompleto,>50,masculino,sus,IV,1,4
+fund. completo,>50,masculino,sus,IV,1,28
+fund. incompleto,>50,feminino,sus,IV,0,11
+fund. completo,>50,masculino,sus,II,0,28
+ens. médio,>50,masculino,convênio,III,0,3
+fund. incompleto,>50,masculino,sus,IV,1,11
+ens. médio,>50,feminino,sus,III,0,43
+fund. incompleto,>50,feminino,sus,I,0,217
+fund. completo,>50,feminino,sus,II,0,9
+ens. médio,>50,feminino,sus,IV,1,42
+fund. completo,>50,feminino,sus,I,0,48
+fund. completo,>50,masculino,sus,II,0,44
+fund. incompleto,>50,masculino,sus,III,1,12
+fund. completo,<=50,masculino,sus,IV,0,39
+fund. incompleto,>50,masculino,sus,III,0,14
+fund. completo,>50,feminino,sus,I,0,49
+fund. incompleto,>50,feminino,sus,III,0,48
+analfabeto,>50,masculino,sus,IV,1,10
+superior,>50,masculino,sus,IV,1,14
+ens. médio,>50,masculino,sus,IV,1,1
+fund. completo,>50,feminino,sus,III,0,58
+fund. completo,<=50,masculino,sus,I,0,24
+fund. completo,>50,feminino,sus,IV,1,31
+fund. completo,>50,masculino,sus,I,0,34
+fund. completo,>50,feminino,sus,I,0,13
+superior,>50,masculino,sus,IV,0,48
+superior,>50,masculino,particular,IV,1,14
+fund. incompleto,>50,feminino,sus,I,0,41
+ens. médio,<=50,masculino,sus,II,0,43
+fund. completo,<=50,masculino,sus,IV,1,15
+fund. completo,>50,masculino,sus,III,1,20
+fund. incompleto,>50,masculino,sus,II,1,29
+fund. incompleto,>50,masculino,sus,IV,0,26
+fund. completo,>50,masculino,sus,III,0,12
+fund. completo,>50,feminino,sus,I,0,14
+fund. completo,>50,feminino,sus,IV,1,15
+fund. incompleto,>50,feminino,sus,IV,1,15
+fund. incompleto,>50,masculino,sus,II,0,13
+fund. completo,>50,feminino,sus,II,0,15
+analfabeto,>50,masculino,sus,III,0,10
+fund. completo,>50,masculino,sus,II,0,13
+fund. completo,<=50,feminino,sus,IV,0,18
+ens. médio,>50,masculino,sus,II,0,2
+fund. incompleto,<=50,masculino,sus,IV,1,5
+fund. incompleto,>50,feminino,sus,III,1,38
+ens. médio,>50,feminino,sus,IV,0,4
+fund. completo,>50,feminino,sus,II,0,43
+fund. incompleto,>50,masculino,sus,IV,1,3
+ens. médio,>50,feminino,convênio,III,0,67
+fund. incompleto,<=50,masculino,sus,IV,1,8
+fund. incompleto,>50,feminino,sus,IV,1,37
+fund. incompleto,>50,masculino,sus,II,0,53
+fund. incompleto,<=50,feminino,sus,IV,1,21
+fund. incompleto,>50,feminino,sus,IV,1,16
+fund. incompleto,>50,feminino,sus,III,0,18
+ens. médio,>50,masculino,particular,I,0,72
+fund. incompleto,>50,feminino,sus,II,0,50
+fund. incompleto,>50,feminino,sus,IV,1,20
+ens. médio,>50,feminino,particular,III,0,41
+superior,>50,masculino,sus,III,1,24
+ens. médio,>50,feminino,sus,IV,1,6
+fund. incompleto,>50,masculino,sus,III,0,13
+fund. completo,>50,feminino,sus,I,0,24
+ens. médio,<=50,masculino,sus,III,0,27
+fund. incompleto,>50,masculino,sus,II,1,8
+fund. completo,>50,masculino,sus,IV,1,2
+fund. completo,<=50,masculino,sus,I,0,26
+ens. médio,>50,feminino,sus,I,0,16
+ens. médio,>50,feminino,sus,I,0,12
+ens. médio,<=50,feminino,sus,II,0,6
+superior,<=50,feminino,convênio,II,0,5
+fund. completo,<=50,feminino,sus,II,0,5
+fund. incompleto,<=50,feminino,sus,IV,1,2
+fund. incompleto,>50,masculino,sus,III,0,18
+fund. incompleto,>50,masculino,sus,IV,1,19
+fund. incompleto,<=50,masculino,sus,II,0,57
+fund. completo,>50,masculino,sus,IV,1,5
+fund. incompleto,>50,masculino,sus,II,1,18
+ens. médio,<=50,masculino,convênio,IV,1,1
+fund. incompleto,>50,feminino,sus,II,0,134
+fund. completo,<=50,masculino,sus,I,0,89
+fund. incompleto,>50,masculino,sus,III,0,148
+analfabeto,>50,feminino,sus,II,1,1
+fund. incompleto,<=50,masculino,sus,I,0,115
+fund. completo,<=50,masculino,convênio,II,0,91
+ens. médio,>50,masculino,sus,III,0,48
+fund. incompleto,>50,masculino,sus,II,0,78
+fund. incompleto,>50,feminino,sus,II,0,36
+analfabeto,>50,masculino,sus,IV,1,19
+analfabeto,>50,masculino,sus,IV,1,4
+fund. completo,>50,masculino,sus,IV,1,7
+ens. médio,>50,masculino,sus,III,1,24
+ens. médio,<=50,masculino,sus,III,0,54
+fund. incompleto,>50,feminino,sus,II,0,55
+ens. médio,>50,masculino,sus,II,0,51
+ens. médio,>50,masculino,convênio,III,0,43
+superior,>50,masculino,convênio,II,0,36
+fund. completo,>50,masculino,sus,IV,0,4
+fund. completo,<=50,masculino,convênio,IV,1,6
+fund. completo,>50,feminino,convênio,III,1,3
+fund. incompleto,<=50,feminino,sus,III,1,1
+fund. incompleto,>50,feminino,sus,III,1,3
+analfabeto,>50,masculino,sus,IV,0,52
+fund. incompleto,>50,masculino,sus,I,0,30
+fund. completo,>50,feminino,sus,II,0,32
+ens. médio,>50,masculino,sus,I,0,26
+fund. completo,<=50,feminino,sus,II,0,16
+fund. completo,<=50,masculino,sus,II,0,8
+fund. incompleto,>50,feminino,sus,I,1,3
+fund. incompleto,>50,masculino,sus,I,0,3
+ens. médio,>50,feminino,convênio,I,0,9
+fund. incompleto,>50,masculino,sus,I,0,12
+fund. incompleto,>50,masculino,convênio,II,0,10
+fund. incompleto,>50,masculino,sus,III,0,9
+fund. incompleto,<=50,feminino,sus,III,0,16
+fund. incompleto,>50,masculino,sus,II,1,26
+fund. incompleto,>50,feminino,sus,IV,1,15
+fund. incompleto,>50,feminino,sus,I,0,25
+fund. completo,>50,masculino,sus,IV,0,10
+fund. incompleto,>50,masculino,sus,III,0,2
+ens. médio,>50,feminino,sus,II,0,10
+fund. incompleto,>50,masculino,sus,II,0,4
+fund. completo,<=50,masculino,convênio,IV,1,6
+fund. incompleto,>50,feminino,sus,II,0,75
+superior,>50,masculino,sus,III,0,31
+fund. incompleto,>50,feminino,convênio,II,0,53
+superior,<=50,feminino,sus,IV,0,3
+fund. incompleto,>50,feminino,sus,II,0,9
+ens. médio,<=50,feminino,sus,II,1,11
+fund. completo,<=50,masculino,sus,II,0,33
+fund. incompleto,>50,masculino,sus,III,0,79
+fund. incompleto,<=50,feminino,sus,III,0,21
+fund. incompleto,>50,feminino,sus,II,0,80
+fund. incompleto,<=50,feminino,sus,I,0,40
+fund. incompleto,>50,feminino,sus,III,0,18
+fund. incompleto,>50,masculino,sus,IV,1,19
+fund. incompleto,>50,masculino,convênio,II,0,56
+fund. incompleto,<=50,feminino,convênio,IV,0,8
+fund. incompleto,>50,masculino,sus,III,0,61
+fund. incompleto,<=50,masculino,sus,III,1,50
+fund. incompleto,>50,masculino,sus,III,0,93
+fund. incompleto,>50,masculino,sus,II,1,7
+fund. incompleto,>50,feminino,sus,II,0,57
+ens. médio,>50,masculino,sus,II,1,61
+ens. médio,>50,feminino,sus,I,1,1
+fund. incompleto,>50,masculino,sus,I,1,2
+fund. completo,>50,masculino,sus,III,1,5
+ens. médio,>50,feminino,sus,III,1,5
+fund. incompleto,>50,masculino,sus,II,1,6
+analfabeto,>50,masculino,sus,IV,1,5
+fund. completo,>50,feminino,sus,II,1,16
+fund. completo,>50,masculino,sus,I,1,6
+fund. incompleto,>50,feminino,sus,IV,1,7
+fund. incompleto,>50,feminino,sus,IV,0,53
+fund. completo,>50,masculino,sus,III,0,39
+fund. completo,>50,masculino,sus,I,0,15
+ens. médio,<=50,feminino,sus,III,0,39
+fund. completo,>50,masculino,sus,IV,1,2
+fund. incompleto,>50,masculino,sus,IV,0,57
+fund. completo,>50,masculino,sus,IV,0,21
+fund. incompleto,>50,feminino,sus,IV,0,5
+fund. incompleto,>50,feminino,sus,I,1,7
+fund. incompleto,>50,feminino,sus,II,0,20
+ens. médio,<=50,masculino,sus,III,0,7
+fund. incompleto,>50,masculino,sus,IV,1,1
+analfabeto,>50,feminino,sus,II,0,4
+fund. completo,>50,feminino,sus,I,0,22
+superior,>50,masculino,sus,I,0,14
+fund. completo,>50,feminino,sus,II,0,37
+fund. incompleto,>50,masculino,sus,IV,1,24
+fund. completo,<=50,masculino,sus,I,0,8
+fund. incompleto,>50,masculino,sus,II,1,1
+superior,>50,masculino,convênio,III,0,41
+superior,<=50,masculino,sus,I,0,30
+fund. completo,>50,feminino,sus,IV,1,16
+fund. incompleto,>50,feminino,sus,IV,0,87
+ens. médio,>50,feminino,convênio,I,0,8
+fund. incompleto,>50,masculino,convênio,III,0,12
+ens. médio,<=50,feminino,sus,IV,1,2
+fund. incompleto,>50,masculino,sus,I,1,79
+fund. incompleto,<=50,masculino,sus,II,0,14
+ens. médio,>50,masculino,sus,I,0,17
+fund. completo,<=50,feminino,sus,III,0,43
+ens. médio,>50,masculino,sus,I,0,20
+fund. incompleto,<=50,masculino,sus,II,0,21
+fund. incompleto,>50,feminino,sus,III,0,26
+fund. incompleto,>50,feminino,sus,IV,1,4
+fund. incompleto,>50,masculino,sus,IV,0,11
+fund. incompleto,>50,masculino,sus,III,1,11
+ens. médio,>50,masculino,sus,II,1,8
+fund. incompleto,<=50,masculino,sus,IV,1,21
+fund. incompleto,>50,feminino,sus,II,1,1
+fund. incompleto,>50,feminino,sus,IV,0,16
+fund. incompleto,>50,masculino,sus,I,0,15
+fund. incompleto,>50,feminino,sus,II,0,49
+ens. médio,>50,feminino,sus,IV,1,4
+ens. médio,>50,masculino,sus,IV,1,7
+fund. incompleto,>50,feminino,sus,I,0,2
+ens. médio,>50,feminino,sus,III,0,2
+analfabeto,>50,feminino,sus,III,0,56
+fund. completo,>50,masculino,sus,IV,1,3
+fund. completo,>50,masculino,sus,II,0,4
+fund. incompleto,>50,feminino,sus,III,1,18
+fund. completo,>50,masculino,sus,IV,0,63
+fund. completo,>50,masculino,sus,II,1,24
+fund. incompleto,>50,feminino,sus,IV,1,4
+fund. completo,>50,masculino,sus,III,1,18
+fund. incompleto,>50,masculino,sus,IV,1,25
+fund. completo,>50,feminino,sus,IV,1,2
+fund. incompleto,>50,feminino,sus,II,0,1
+fund. completo,>50,masculino,sus,I,0,65
+ens. médio,<=50,masculino,sus,IV,0,77
+superior,<=50,feminino,sus,IV,0,104
+ens. médio,>50,masculino,sus,IV,0,108
+superior,>50,feminino,sus,IV,0,100
+ens. médio,<=50,feminino,sus,IV,0,105
+fund. incompleto,<=50,masculino,sus,III,0,97
+fund. incompleto,>50,masculino,sus,IV,1,25
+ens. médio,>50,feminino,sus,I,0,71
+fund. incompleto,>50,feminino,sus,I,0,94
+superior,>50,feminino,sus,II,0,94
+fund. completo,>50,feminino,sus,II,1,31
+ens. médio,>50,masculino,sus,II,1,103
+superior,<=50,masculino,sus,IV,0,97
+fund. completo,>50,masculino,sus,II,0,106
+fund. completo,>50,feminino,sus,IV,1,2
+ens. médio,<=50,feminino,sus,I,0,93
+fund. completo,>50,feminino,sus,IV,0,93
+ens. médio,>50,masculino,sus,III,0,91
+ens. médio,<=50,feminino,sus,III,0,88
+ens. médio,<=50,masculino,sus,III,1,84
+ens. médio,>50,masculino,sus,III,1,59
+ens. médio,>50,feminino,sus,IV,1,13
+fund. completo,<=50,feminino,sus,II,0,84
+fund. completo,>50,feminino,sus,II,0,67
+fund. completo,>50,masculino,sus,II,0,104
+ens. médio,>50,masculino,sus,III,1,8
+ens. médio,<=50,feminino,sus,IV,1,11
+fund. completo,>50,feminino,sus,IV,1,7
+fund. completo,>50,feminino,sus,III,0,35
+fund. completo,>50,masculino,sus,I,0,17
+fund. completo,>50,masculino,sus,III,0,44
+analfabeto,>50,masculino,sus,II,0,29
+fund. completo,<=50,masculino,sus,II,0,48
+fund. completo,>50,feminino,sus,III,0,57
+fund. completo,>50,feminino,sus,IV,1,36
+fund. incompleto,<=50,masculino,sus,I,0,46
+superior,>50,masculino,sus,III,0,44
+fund. completo,>50,feminino,sus,II,0,6
+fund. completo,>50,feminino,sus,III,1,6
+fund. incompleto,>50,masculino,sus,III,1,36
+fund. incompleto,<=50,masculino,sus,IV,0,6
+ens. médio,>50,feminino,sus,IV,0,16
+ens. médio,>50,masculino,sus,IV,0,21
+superior,<=50,feminino,sus,III,0,2
