@@ -154,6 +154,8 @@ head(Surv(time = d_cint$tempo_meses, event = d_cint$status), n = 100) #<<
 
 #### Construindo curvas de sobrevivência baseadas no estimador de K-M:
 
+- Sem distinção de característica;
+
 .pull-left[
 ```{r g1, paged.print=FALSE, eval=FALSE}
 # ajustar modelo não parametrico baseado 
@@ -358,6 +360,7 @@ ggsurvplot(
   legend.title = "Categoria de atendimento:",
   legend.labs = c("Convênio", "Particular", "SUS"),
   palette = "jco",
+  # log-rank
   pval = TRUE, pval.size = 5 #<<
 ) 
 ```
@@ -380,6 +383,7 @@ ggsurvplot(
   legend.title = "Categoria de atendimento:",
   legend.labs = c("Convênio", "Particular", "SUS"),
   palette = "jco",
+  # log-rank
   pval = TRUE, pval.size = 5,
   risk.table = TRUE #<<
 ) 
@@ -403,6 +407,7 @@ ggsurvplot(
   legend.title = "Categoria de atendimento:",
   legend.labs = c("Convênio", "Particular", "SUS"),
   palette = "jco",
+  # log-rank
   pval = TRUE, pval.size = 5,
   risk.table = TRUE,
   ncensor.plot = TRUE #<<
@@ -444,7 +449,8 @@ ggsurvplot( #<<
   legend.title = "Sexo:", #<<
   legend.labs = c("Feminino", "Masculino"), #<<
   palette = "jco", #<<
-  pval = TRUE, pval.size = 5, #<<
+  # log-rank
+  pval = TRUE, pval.size = 5 #<<
 ) #<<
 ```
 
@@ -546,7 +552,7 @@ cox2 <- coxph( #<<
 
 ---
 
-#### O pressuposto de taxas de falhas proporcionais é atendido?
+#### O pressuposto de taxas de falhas proporcionais foi atendido?
 
 .pull-left[
 ```{r g16, paged.print=FALSE, eval=FALSE}

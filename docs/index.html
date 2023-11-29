@@ -148,6 +148,8 @@ library(survival)
 
 #### Construindo curvas de sobrevivência baseadas no estimador de K-M:
 
+- Sem distinção de característica;
+
 .pull-left[
 
 ```r
@@ -353,6 +355,7 @@ ggsurvplot(
   legend.title = "Categoria de atendimento:",
   legend.labs = c("Convênio", "Particular", "SUS"),
   palette = "jco",
+  # log-rank
 * pval = TRUE, pval.size = 5
 ) 
 ```
@@ -375,6 +378,7 @@ ggsurvplot(
   legend.title = "Categoria de atendimento:",
   legend.labs = c("Convênio", "Particular", "SUS"),
   palette = "jco",
+  # log-rank
   pval = TRUE, pval.size = 5,
 * risk.table = TRUE
 ) 
@@ -398,6 +402,7 @@ ggsurvplot(
   legend.title = "Categoria de atendimento:",
   legend.labs = c("Convênio", "Particular", "SUS"),
   palette = "jco",
+  # log-rank
   pval = TRUE, pval.size = 5,
   risk.table = TRUE,
 * ncensor.plot = TRUE
@@ -439,7 +444,8 @@ km_sexo &lt;- survfit(
 * legend.title = "Sexo:",
 * legend.labs = c("Feminino", "Masculino"),
 * palette = "jco",
-* pval = TRUE, pval.size = 5,
+  # log-rank
+* pval = TRUE, pval.size = 5
 *) 
 ```
 
@@ -568,7 +574,7 @@ rp1 &lt;- cox.zph(cox1)
 
 ---
 
-#### O pressuposto de taxas de falhas proporcionais é atendido?
+#### O pressuposto de taxas de falhas proporcionais foi atendido?
 
 .pull-left[
 
