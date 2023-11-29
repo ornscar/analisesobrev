@@ -50,7 +50,7 @@ class: middle, center, partial-bg
 
     - Teste de Log-Rank;
 
-    - Modelo de Cox: ajuste, taxas de falha e resíduos de Shoenfeld.
+    - Modelo de Cox: ajuste, taxas de falha e resíduos de Schoenfeld.
 
 &lt;br&gt;
 
@@ -124,7 +124,7 @@ class: middle, center, inverse
 ```r
 library(survival)
 
-# checando as 10 primeiras observações
+# checando as 100 primeiras observações
 
 *head(Surv(time = d_cint$tempo_meses, event = d_cint$status), n = 100)
 ```
@@ -146,13 +146,13 @@ library(survival)
 
 ---
 
-#### Construindo curvas de sobrevivências baseada no estimador de K-M:
+#### Construindo curvas de sobrevivência baseadas no estimador de K-M:
 
 .pull-left[
 
 ```r
-# ajustar modelo não paramétrico baseado no estimador k-m
-# k-m geral
+# ajustar modelo não parametrico baseado 
+# no estimador k-m
 
 km_geral &lt;- survfit(
   Surv(time = tempo_meses, event = status) ~ 1, 
@@ -259,7 +259,7 @@ ggsurvplot(
 
 &lt;br&gt;
 .left[
-&lt;font size=3, color="#C0392B"&gt;Conclusão: indivíduos que sobreviveram ao câncer de intestino até aproximadamente o nono ano têm probabilidade de continuar vivo estabilizada em torno de 47%. &lt;/font&gt;
+&lt;font size=3, color="#C0392B"&gt;Conclusão: cerca de 50% dos indivíduos ainda estarão vivos após, aproximadamente, 97 meses.&lt;/font&gt;
 ]
 ]
 
@@ -271,18 +271,20 @@ ggsurvplot(
 
 #### Mas talvez o interesse esteja em comparar as curvas de sobrevida entre grupos...
 
+- Categoria de atendimento;
+
 .pull-left[
 
 ```r
-# ajustar modelo não paramétrico baseado no estimador k-m
-# k-m categoria de atendimento
+# ajustar modelo não parametrico baseado 
+# no estimador k-m
 
 km_atend &lt;- survfit(
   Surv(time = tempo_meses, event = status) ~ atendimento_diagnostico, 
   data = d_cint 
 ) 
 
-# curva de k-m, por categoria de atendimento
+# curvas de k-m, por categoria de atendimento
 
 *ggsurvplot(
 * km_atend, data = d_cint,
@@ -307,8 +309,8 @@ ggsurvplot(
   fun = "pct", 
   ylab = "Probabilidade de sobrevida (%)", 
   xlab = "Tempo (em meses)", 
-* legend.title = "Categoria de atendimento",
-* legend.labs = c("Convenio", "Particular", "SUS")
+* legend.title = "Categoria de atendimento:",
+* legend.labs = c("Convênio", "Particular", "SUS")
 ) 
 ```
 ]
@@ -327,9 +329,31 @@ ggsurvplot(
   fun = "pct", 
   ylab = "Probabilidade de sobrevida (%)", 
   xlab = "Tempo (em meses)", 
-  legend.title = "Categoria de atendimento",
-  legend.labs = c("Convenio", "Particular", "SUS"),
-* pval = TRUE, pval.size = 3
+  legend.title = "Categoria de atendimento:",
+  legend.labs = c("Convênio", "Particular", "SUS"),
+* palette = "jco"
+) 
+```
+]
+
+.pull-right[
+![](index_files/figure-html/g14-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+.pull-left[
+
+```r
+ggsurvplot(
+  km_atend, data = d_cint, 
+  fun = "pct", 
+  ylab = "Probabilidade de sobrevida (%)", 
+  xlab = "Tempo (em meses)", 
+  legend.title = "Categoria de atendimento:",
+  legend.labs = c("Convênio", "Particular", "SUS"),
+  palette = "jco",
+* pval = TRUE, pval.size = 5
 ) 
 ```
 ]
@@ -348,25 +372,84 @@ ggsurvplot(
   fun = "pct", 
   ylab = "Probabilidade de sobrevida (%)", 
   xlab = "Tempo (em meses)", 
-  legend.title = "Categoria de atendimento",
-  legend.labs = c("Convenio", "Particular", "SUS"),
-  pval = TRUE, pval.size = 3,
+  legend.title = "Categoria de atendimento:",
+  legend.labs = c("Convênio", "Particular", "SUS"),
+  palette = "jco",
+  pval = TRUE, pval.size = 5,
 * risk.table = TRUE
+) 
+```
+]
+
+.pull-right[
+![](index_files/figure-html/g10-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+.pull-left[
+
+```r
+ggsurvplot(
+  km_atend, data = d_cint, 
+  fun = "pct", 
+  ylab = "Probabilidade de sobrevida (%)", 
+  xlab = "Tempo (em meses)", 
+  legend.title = "Categoria de atendimento:",
+  legend.labs = c("Convênio", "Particular", "SUS"),
+  palette = "jco",
+  pval = TRUE, pval.size = 5,
+  risk.table = TRUE,
+* ncensor.plot = TRUE
 ) 
 ```
 
 &lt;br&gt;
 .left[
-&lt;font size=3, color="#C0392B"&gt;Conclusão: a categoria de atendimento do paciente parecem afetar o tempo de sobrevida até o óbito pelo câncer de intestino, uma vez que p=0,00036. Pelo gráfico, podemos observar que indivíduos que foram atendidos pelo Sistema Único de Saúde (SUS) têm probabilidade expressivamente menor de sobreviver se comparados àqueles que foram atendidos por convênio ou de forma particular.&lt;/font&gt;
-]
-&lt;br&gt;
-.left[
-&lt;font size=3, color="#C0392B"&gt;SUGESTÃO! Reproduza as curvas de K-M para as outras variáveis da base de dados.&lt;/font&gt;
+&lt;font size=3, color="#C0392B"&gt;Conclusão: a categoria de atendimento do paciente parece afetar o tempo de sobrevida até o óbito pelo câncer de intestino, uma vez que houve evidências para rejeitar a hipótese que afima que as curvas de sobrevivência são iguais (p=0,00036). Pelo gráfico, podemos observar que indivíduos que foram atendidos pelo Sistema Único de Saúde (SUS) têm probabilidade expressivamente menor de sobreviver se comparados àqueles que foram atendidos por convênio ou de forma particular.&lt;/font&gt;
 ]
 ]
 
 .pull-right[
-![](index_files/figure-html/g10-out-1.png)&lt;!-- --&gt;
+![](index_files/figure-html/g13-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+- Sexo;
+
+.pull-left[
+
+```r
+# ajustar modelo não parametrico baseado 
+# no estimador k-m
+
+km_sexo &lt;- survfit(
+  Surv(time = tempo_meses, event = status) ~ sexo, 
+  data = d_cint 
+) 
+
+# curvas de k-m, por sexo
+
+*ggsurvplot(
+* km_sexo, data = d_cint,
+* fun = "pct",
+* ylab = "Probabilidade de sobrevida (%)",
+* xlab = "Tempo (em meses)",
+* legend.title = "Sexo:",
+* legend.labs = c("Feminino", "Masculino"),
+* palette = "jco",
+* pval = TRUE, pval.size = 5,
+*) 
+```
+
+.left[
+&lt;font size=3, color="#C0392B"&gt;O valor-p igual a 0,25 mostrado no gráfico indica que existem evidências suficientes para não rejeitar a hipótese que afirma sobre a igualdade das funções de sobrevivência. Em outras palavras, isso significa que ser do sexo feminino ou masculino não influencia no óbito por CCR, o que está em consonância com o que diz o Programa Nacional de Prevenção do Câncer, do Ministério da Saúde.&lt;/font&gt;
+]
+]
+
+.pull-right[
+![](index_files/figure-html/g12-out-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -378,15 +461,16 @@ class: middle, center, inverse
 
 #### Supondo taxas de falhas proporcionais, ajustamos o modelo semi-paramétrico de Cox:
 
+- Categoria de atendimento e sexo;
+
 
 ```r
 # ajuste
 
-mod_cox &lt;- coxph( 
-  Surv(time = tempo_meses, event = status) ~ escolaridade + faixa_etaria + sexo + 
-    atendimento_diagnostico + estadiamento_clinico, 
-  data =  d_cint 
-) 
+*cox1 &lt;- coxph(
+* Surv(time = tempo_meses, event = status) ~ sexo + atendimento_diagnostico,
+* data =  d_cint
+*) 
 ```
 
 ---
@@ -398,12 +482,12 @@ mod_cox &lt;- coxph(
 ```r
 # teste de riscos proporcionais
 
-teste_rp &lt;- cox.zph(mod_cox)
+rp1 &lt;- cox.zph(cox1)
 
-# graficos de residuos de shoenfeld
+# graficos de residuos de schoenfeld
 
 *ggcoxzph(
-* teste_rp,
+* rp1,
 * point.alpha = 0.6,
 * point.col = "#000000"
 *) 
@@ -411,23 +495,116 @@ teste_rp &lt;- cox.zph(mod_cox)
 
 &lt;br&gt;
 .left[
-&lt;font size=3, color="#C0392B"&gt;Conclusão: ao observar os gráficos dos resíduos padronizados de Shoenfeld, atestamos a premissa de proporcionalidade pois não existem tendências claras ao longo do tempo. Além disso, podemos verificar que os testes global e para cada uma das covariáveis em análise apresentaram evidências que não permitem a rejeição da hipótese nula de riscos proporcionais, dado que todos os valores-p foram superiores a 0,05.&lt;/font&gt;
+&lt;font size=3, color="#C0392B"&gt;Conclusão: ao observar os gráficos dos resíduos padronizados de Schoenfeld, atestamos a premissa de proporcionalidade das taxas de falhas pois não existem tendências claras ao longo do tempo. Além disso, podemos verificar que os testes global e para cada uma das covariáveis em análise apresentaram evidências que não permitem a rejeição da hipótese nula de riscos proporcionais, dado que todos os valores-p foram superiores a 0,05.&lt;/font&gt;
 ]
 ]
 
 .pull-right[
-![](index_files/figure-html/g11-out-1.png)&lt;!-- --&gt;
+![](index_files/figure-html/g15-out-1.png)&lt;!-- --&gt;
 ]
 
 ---
 
-#### Agora sim, podemos confiar nas estimativas do nosso modelo:
+#### Agora, sim, podemos confiar nas estimativas do nosso modelo:
 
 
 ```r
 # resumo do modelo
 
-*summary(mod_cox)
+*summary(cox1)
+```
+
+```
+## Call:
+## coxph(formula = Surv(time = tempo_meses, event = status) ~ sexo + 
+##     atendimento_diagnostico, data = d_cint)
+## 
+##   n= 764, number of events= 290 
+## 
+##                                      coef exp(coef) se(coef)     z Pr(&gt;|z|)    
+## sexomasculino                     0.13424   1.14367  0.11826 1.135 0.256309    
+## atendimento_diagnosticoparticular 0.01329   1.01337  0.76932 0.017 0.986222    
+## atendimento_diagnosticosus        1.07723   2.93655  0.30758 3.502 0.000461 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+##                                   exp(coef) exp(-coef) lower .95 upper .95
+## sexomasculino                         1.144     0.8744    0.9071     1.442
+## atendimento_diagnosticoparticular     1.013     0.9868    0.2243     4.577
+## atendimento_diagnosticosus            2.937     0.3405    1.6070     5.366
+## 
+## Concordance= 0.545  (se = 0.016 )
+## Likelihood ratio test= 21.46  on 3 df,   p=8e-05
+## Wald test            = 15.64  on 3 df,   p=0.001
+## Score (logrank) test = 17.09  on 3 df,   p=7e-04
+```
+
+---
+
+#### Ao nível de significância de 5%, podemos concluir que:
+
+- Ser do sexo feminino ou masculino não influencia na ocorrência do óbito pelo câncer de intestino, conclusão essa já apontada pelas curvas de sobrevivência via estimador de Kaplan-Meier feitas anteriormente.
+
+- Ser atendido pelo SUS aumenta o risco de morte em pessoas acometidas pelo câncer de intestino, dado seu parâmetro estimado positivo (1,077).
+
+- Ao considerar as demais covariáveis constantes, podemos dizer que o paciente que foi atendido pelo SUS é capaz de aumentar em quase três vezes o risco de óbito pelo câncer de intestino em comparação a se o atendimento tivesse sido feito por meio de convênio.
+
+---
+
+#### Mas qual será o resultado do modelo ao incluir todas as variáveis?
+
+- Todas as covariáveis;
+
+
+```r
+# ajuste
+
+*cox2 &lt;- coxph(
+* Surv(time = tempo_meses, event = status) ~ escolaridade + faixa_etaria + sexo +
+*   atendimento_diagnostico + estadiamento_clinico,
+* data =  d_cint
+*) 
+```
+
+---
+
+#### O pressuposto de taxas de falhas proporcionais é atendido?
+
+.pull-left[
+
+```r
+# teste de riscos proporcionais
+
+rp2 &lt;- cox.zph(cox2)
+
+# graficos de residuos de schoenfeld
+
+*ggcoxzph(
+* rp2,
+* point.alpha = 0.6,
+* point.col = "#000000"
+*) 
+```
+
+&lt;br&gt;
+.left[
+&lt;font size=3, color="#C0392B"&gt;Conclusão: ao observar os gráficos dos resíduos de Schoenfeld, verificamos que o pressuposto de taxas de falhas proporcionais não está sendo violado, pois os valores-p foram superiores a 0,05 (e, portanto, a hipótese nula de riscos proporcionais não foi rejeitada) e os gráficos não evidenciam tendência ao longo do tempo.&lt;/font&gt;
+]
+]
+
+.pull-right[
+![](index_files/figure-html/g16-out-1.png)&lt;!-- --&gt;
+]
+
+---
+
+#### As estimativas do modelo:
+
+
+```r
+# resumo do modelo
+
+*summary(cox2)
 ```
 
 ```
@@ -486,11 +663,13 @@ teste_rp &lt;- cox.zph(mod_cox)
 
 ---
 
-#### Conclusões ao nível de significância de 5%:
+#### E então, considerando um nível de significância de 5%, concluímos que:
 
 - Ser analfabeto, ser atendido pelo SUS e ter o tumor classificado nos estadios III ou IV aumentam o risco de morte entre pessoas diagnosticadas com câncer de intestino. Ao contrário do que acontece se o paciente tem ensino superior, quando o risco de vir a óbito diminui.
 
-- Ao considerar as demais covariáveis constantes, também concluímos que o risco de morte por câncer de intestino entre os pacientes com estadiamento IV é cerca de 5 vezes o risco de morte entre os pacientes em que o tumor foi classificado com estadio I. Sem contar se o paciente foi atendido pelo SUS, cuja categoria é capaz de aumentar em duas vezes o risco de óbito em comparação a se o atendimento tivesse sido feito por meio de convênio.
+- Ao considerar as demais covariáveis constantes, também podemos inferir que o risco de morte por câncer de intestino entre os pacientes com estadiamento IV é cerca de 5 vezes o risco de morte entre os pacientes em que o tumor foi classificado com estadio I. Sem contar se o paciente foi atendido pelo SUS, cuja categoria é capaz de aumentar em duas vezes o risco de óbito em comparação a se o atendimento tivesse sido feito por meio de convênio.
+
+- O maior risco de óbito por câncer de intestino em indivíduos atendidos pelo SUS, geralmente, se deve aos pacientes chegarem aos hospitais em estados mais avançados da doença.
 
 ---
 class: middle, center, inverse
