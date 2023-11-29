@@ -47,44 +47,87 @@ ggsurvplot(
 # k-m, por categoria de atendimento ---------------------------------------
 
 # ajustar modelo não paramétrico baseado no estimador k-m
-# k-m categoria de atendimento
 
 km_atend <- survfit( 
   Surv(time = tempo_meses, event = status) ~ atendimento_diagnostico, 
   data = d_cint 
 ) 
 
-# curva de k-m, por categoria de atendimento
+# curvas de k-m, por categoria de atendimento
 
 ggsurvplot(
   km_atend, data = d_cint, 
   xlab = "Tempo (em meses)", ylab = "Probabilidade de sobrevida", 
   pval = TRUE, pval.size = 3, 
-  risk.table = TRUE,
-  fun = "pct",
+  risk.table = TRUE, ncensor.plot = TRUE,
+  fun = "pct", palette = "jco",
   legend.title = "Categoria de atendimento",
-  legend.labs = c("Convenio", "Particular", "SUS"),
+  legend.labs = c("Convenio", "Particular", "SUS")
 ) 
 
 
-# modelo de cox -----------------------------------------------------------
+# k-m, por sexo -----------------------------------------------------------
+
+# ajustar modelo não paramétrico baseado no estimador k-m
+
+km_sexo <- survfit( 
+  Surv(time = tempo_meses, event = status) ~ sexo, 
+  data = d_cint 
+) 
+
+# curvas de k-m, por sexo
+
+ggsurvplot(
+  km_sexo, data = d_cint, 
+  xlab = "Tempo (em meses)", ylab = "Probabilidade de sobrevida", 
+  pval = TRUE, pval.size = 3, 
+  risk.table = TRUE, ncensor.plot = TRUE,
+  fun = "pct", palette = "jco",
+  legend.title = "Sexo",
+  legend.labs = c("Feminino", "Masculino")
+) 
+
+
+# modelo de cox - atendimento e sexo --------------------------------------
 
 # ajuste
 
-mod_cox <- coxph( 
-  Surv(time = tempo_meses, event = status) ~ escolaridade + faixa_etaria + sexo + 
-    atendimento_diagnostico + estadiamento_clinico, 
+cox1 <- coxph( 
+  Surv(time = tempo_meses, event = status) ~ sexo + atendimento_diagnostico, 
   data =  d_cint 
-); summary(mod_cox) 
+); summary(cox1) 
 
 # teste de riscos proporcionais
 
-teste_rp <- cox.zph(mod_cox)
+rp1 <- cox.zph(cox1)
 
-# graficos de residuos de shoenfeld
+# graficos de residuos de schoenfeld
 
 ggcoxzph( 
-  teste_rp, #<<
+  rp1,
+  point.alpha = .6, 
+  point.col = "#000000" 
+) 
+
+
+# modelo de cox - todas as variaveis --------------------------------------
+
+# ajuste
+
+cox2 <- coxph( 
+  Surv(time = tempo_meses, event = status) ~ escolaridade + faixa_etaria + sexo + 
+    atendimento_diagnostico + estadiamento_clinico, 
+  data =  d_cint 
+); summary(cox2) 
+
+# teste de riscos proporcionais
+
+rp2 <- cox.zph(cox2)
+
+# graficos de residuos de schoenfeld
+
+ggcoxzph( 
+  rp2, 
   point.alpha = .6, 
   point.col = "#000000" 
 ) 
